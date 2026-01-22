@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const Footer = () => {
     return (
         <footer style={{ background: '#0f172a', color: 'white', padding: '4rem 0 2rem' }}>
@@ -25,8 +27,8 @@ export const Footer = () => {
                     <div>
                         <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>会社情報</h4>
                         <ul style={{ color: '#94a3b8', fontSize: '0.875rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <li>私たちについて</li>
-                            <li>ニュース</li>
+                            <li><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>私たちについて</Link></li>
+                            <li><Link to="/news" style={{ color: 'inherit', textDecoration: 'none' }}>ニュース</Link></li>
                             <li>導入事例</li>
                             <li>お問い合わせ</li>
                         </ul>
