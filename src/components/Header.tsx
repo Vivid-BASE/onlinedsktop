@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logoImg from '../assets/hdr_top.png';
 
 export const Header = () => {
     return (
@@ -20,7 +21,7 @@ export const Header = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     {/* Logo image - ensuring full visibility */}
                     <img
-                        src="/assets/hdr_top.png"
+                        src={logoImg}
                         alt="OnlineDesktop Logo"
                         style={{
                             height: '50px',

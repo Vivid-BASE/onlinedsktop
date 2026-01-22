@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import heroImg from '../assets/home_title.jpg';
 
 export const Hero = () => {
     return (
@@ -99,7 +100,7 @@ export const Hero = () => {
                         border: '8px solid rgba(255, 255, 255, 0.8)'
                     }}>
                         <img
-                            src="/assets/home_title.jpg"
+                            src={heroImg}
                             alt="Billing Workflow"
                             style={{ width: '100%', height: 'auto', display: 'block' }}
                         />
