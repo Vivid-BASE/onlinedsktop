@@ -6,6 +6,7 @@ import { NewsPage } from './pages/NewsPage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicePage } from './pages/ServicePage';
 import { CasePage } from './pages/CasePage';
+import { PricePage } from './pages/PricePage';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/service" element={<ServicePage />} />
           <Route path="/case" element={<CasePage />} />
+          <Route path="/price" element={<PricePage />} />
         </Routes>
         <Footer />
       </div>

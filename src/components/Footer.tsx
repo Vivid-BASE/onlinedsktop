@@ -30,6 +30,7 @@ export const Footer = () => {
                             <li><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>私たちについて</Link></li>
                             <li><Link to="/news" style={{ color: 'inherit', textDecoration: 'none' }}>ニュース</Link></li>
                             <li><Link to="/case" style={{ color: 'inherit', textDecoration: 'none' }}>導入事例</Link></li>
+                            <li><Link to="/price" style={{ color: 'inherit', textDecoration: 'none' }}>料金</Link></li>
                             <li>お問い合わせ</li>
                         </ul>
                     </div>

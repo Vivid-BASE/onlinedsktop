@@ -31,10 +31,15 @@ export const Header = () => {
             return;
         }
 
+        if (item === '料金') {
+            navigate('/price');
+            window.scrollTo(0, 0);
+            return;
+        }
+
         // Map Japanese items to section IDs
         const sectionMap: { [key: string]: string } = {
             'ホーム': 'home',
-            '料金': 'home' // Fallback
         };
 
         const targetId = sectionMap[item];
