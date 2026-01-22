@@ -1,22 +1,23 @@
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { ServiceSection } from './components/ServiceSection'
-import { NewsSection } from './components/NewsSection'
-import { Footer } from './components/Footer'
-import './styles/global.css'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { TopPage } from './pages/TopPage';
+import { NewsPage } from './pages/NewsPage';
+import './styles/global.css';
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <Hero />
-        <ServiceSection />
-        <NewsSection />
-      </main>
-      <Footer />
-    </div>
-  )
+    <Router>
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<TopPage />} />
+          <Route path="/news" element={<NewsPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

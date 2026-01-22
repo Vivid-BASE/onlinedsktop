@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const newsItems = [
     { date: '2023.10.15', category: 'お知らせ', title: '11月のシステムメンテナンスのお知らせ' },
@@ -7,6 +8,8 @@ const newsItems = [
 ];
 
 export const NewsSection = () => {
+    const navigate = useNavigate();
+
     return (
         <section id="news" style={{ padding: '6rem 0', background: 'white' }}>
             <div className="container" style={{ maxWidth: '800px' }}>
@@ -53,15 +56,30 @@ export const NewsSection = () => {
                     ))}
                 </div>
                 <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                    <button style={{
-                        padding: '0.75rem 2rem',
-                        background: 'transparent',
-                        border: '1px solid #cbd5e1',
-                        borderRadius: '2rem',
-                        color: '#64748b',
-                        cursor: 'pointer',
-                        fontWeight: 500
-                    }}>
+                    <button
+                        onClick={() => {
+                            navigate('/news');
+                            window.scrollTo(0, 0);
+                        }}
+                        style={{
+                            padding: '0.75rem 2rem',
+                            background: 'white',
+                            border: '1px solid #3b82f6',
+                            borderRadius: '9999px',
+                            color: '#3b82f6',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                            transition: 'all 0.2s'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.background = '#3b82f6';
+                            e.currentTarget.style.color = 'white';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'white';
+                            e.currentTarget.style.color = '#3b82f6';
+                        }}
+                    >
                         ニュース一覧を見る
                     </button>
                 </div>

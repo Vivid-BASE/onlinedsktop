@@ -1,7 +1,46 @@
 import { motion } from 'framer-motion';
 import logoImg from '../assets/hdr_top.png';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Header = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleNavClick = (item: string) => {
+        if (item === 'ニュース') {
+            navigate('/news');
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        // Map Japanese items to section IDs
+        const sectionMap: { [key: string]: string } = {
+            'ホーム': 'home',
+            'サービス': 'service',
+            '私たちについて': 'home', // Fallback
+            '導入事例': 'home', // Fallback
+            '料金': 'home' // Fallback
+        };
+
+        const targetId = sectionMap[item];
+
+        if (location.pathname !== '/') {
+            navigate('/');
+            // Small timeout to allow navigation to complete before scrolling
+            setTimeout(() => {
+                const element = document.getElementById(targetId);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else {
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <motion.header
             initial={{ y: -100 }}
@@ -18,7 +57,13 @@ export const Header = () => {
             }}
         >
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div
+                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', cursor: 'pointer' }}
+                    onClick={() => {
+                        navigate('/');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                >
                     {/* Logo image - ensuring full visibility */}
                     <img
                         src={logoImg}
@@ -32,12 +77,28 @@ export const Header = () => {
                 </div>
 
                 <nav>
-                    <ul style={{ display: 'flex', gap: '2rem', fontWeight: 500 }}>
+                    <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}>
                         {['ホーム', 'ニュース', '私たちについて', 'サービス', '導入事例', '料金'].map((item) => (
                             <li key={item}>
-                                <a href="#" style={{ position: 'relative', transition: 'color 0.2s', fontSize: '0.95rem' }} className="nav-link">
+                                <button
+                                    onClick={() => handleNavClick(item)}
+                                    style={{
+                                        color: '#334155',
+                                        fontWeight: 500,
+                                        fontSize: '0.95rem',
+                                        textDecoration: 'none',
+                                        transition: 'color 0.2s',
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: 0,
+                                        fontFamily: 'inherit'
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.color = '#3b82f6'}
+                                    onMouseLeave={(e) => e.currentTarget.style.color = '#334155'}
+                                >
                                     {item}
-                                </a>
+                                </button>
                             </li>
                         ))}
                     </ul>
