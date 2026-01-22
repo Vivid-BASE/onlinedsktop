@@ -4,11 +4,13 @@ import { Footer } from './components/Footer';
 import { TopPage } from './pages/TopPage';
 import { NewsPage } from './pages/NewsPage';
 import { AboutPage } from './pages/AboutPage';
+import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Header />
         <Routes>
