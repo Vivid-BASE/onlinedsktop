@@ -19,10 +19,15 @@ export const Header = () => {
             return;
         }
 
+        if (item === 'サービス') {
+            navigate('/service');
+            window.scrollTo(0, 0);
+            return;
+        }
+
         // Map Japanese items to section IDs
         const sectionMap: { [key: string]: string } = {
             'ホーム': 'home',
-            'サービス': 'service',
             '導入事例': 'home', // Fallback
             '料金': 'home' // Fallback
         };

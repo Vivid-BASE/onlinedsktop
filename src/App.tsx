@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { TopPage } from './pages/TopPage';
 import { NewsPage } from './pages/NewsPage';
 import { AboutPage } from './pages/AboutPage';
+import { ServicePage } from './pages/ServicePage';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<TopPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/service" element={<ServicePage />} />
         </Routes>
         <Footer />
       </div>

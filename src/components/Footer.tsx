@@ -18,10 +18,10 @@ export const Footer = () => {
                     <div>
                         <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>サービス</h4>
                         <ul style={{ color: '#94a3b8', fontSize: '0.875rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <li>サーバ構築・運用</li>
-                            <li>システム開発</li>
-                            <li>Webデザイン</li>
-                            <li>運用保守・サポート</li>
+                            <li><Link to="/service" style={{ color: 'inherit', textDecoration: 'none' }}>サーバ構築・運用</Link></li>
+                            <li><Link to="/service" style={{ color: 'inherit', textDecoration: 'none' }}>システム開発</Link></li>
+                            <li><Link to="/service" style={{ color: 'inherit', textDecoration: 'none' }}>Webデザイン</Link></li>
+                            <li><Link to="/service" style={{ color: 'inherit', textDecoration: 'none' }}>運用保守・サポート</Link></li>
                         </ul>
                     </div>
                     <div>
