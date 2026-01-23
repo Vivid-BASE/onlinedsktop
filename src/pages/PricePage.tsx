@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const products = [
     {
@@ -21,32 +22,43 @@ const products = [
 ];
 
 export const PricePage = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
-        <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc, #f1f5f9)' }}>
-            <div className="container" style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: '4rem' }}>
+        <div style={{ paddingTop: isMobile ? '70px' : '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc, #f1f5f9)' }}>
+            <div className="container" style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: isMobile ? '2rem' : '4rem' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
                     <h1 style={{
-                        fontSize: '2.5rem',
+                        fontSize: isMobile ? '1.5rem' : '2.5rem',
                         fontWeight: 'bold',
-                        marginBottom: '3rem',
+                        marginBottom: isMobile ? '2rem' : '3rem',
                         textAlign: 'center',
                         color: '#0f172a'
                     }}>
                         料金・取り扱い製品
                         <span style={{
                             display: 'block',
-                            fontSize: '1rem',
+                            fontSize: isMobile ? '0.875rem' : '1rem',
                             color: '#3b82f6',
                             marginTop: '0.5rem',
                             fontWeight: 'normal'
                         }}>Price & Products</span>
                     </h1>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: isMobile ? '1rem' : '2rem' }}>
                         {products.map((product, index) => (
                             <motion.div
                                 key={index}
@@ -55,7 +67,7 @@ export const PricePage = () => {
                                 transition={{ delay: index * 0.1 }}
                                 style={{
                                     background: 'white',
-                                    padding: '2rem',
+                                    padding: isMobile ? '1.25rem' : '2rem',
                                     borderRadius: '1rem',
                                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
                                     border: '1px solid #e2e8f0',
@@ -64,14 +76,14 @@ export const PricePage = () => {
                                     justifyContent: 'center'
                                 }}
                             >
-                                <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1e293b' }}>
+                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.5rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#1e293b' }}>
                                     {product.title}
                                 </h3>
-                                <p style={{ color: '#64748b', fontSize: '1.125rem', lineHeight: 1.6 }}>
+                                <p style={{ color: '#64748b', fontSize: isMobile ? '0.875rem' : '1.125rem', lineHeight: 1.6 }}>
                                     {product.description}
                                 </p>
-                                <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid #f1f5f9' }}>
-                                    <Link to="/" style={{ color: '#3b82f6', fontWeight: 'bold', textDecoration: 'none' }}>
+                                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #f1f5f9' }}>
+                                    <Link to="/" style={{ color: '#3b82f6', fontWeight: 'bold', textDecoration: 'none', fontSize: isMobile ? '0.875rem' : '1rem' }}>
                                         お問い合わせ・お見積もりはこちら →
                                     </Link>
                                 </div>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const services = [
     {
@@ -24,21 +25,36 @@ const services = [
 ];
 
 export const ServiceSection = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
-        <section id="service" style={{ padding: '6rem 0', background: '#f8fafc' }}>
+        <section id="service" style={{ padding: isMobile ? '3rem 0' : '6rem 0', background: '#f8fafc' }}>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    style={{ textAlign: 'center', marginBottom: '4rem' }}
+                    style={{ textAlign: 'center', marginBottom: isMobile ? '2rem' : '4rem' }}
                 >
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>事業内容</h2>
-                    <p style={{ color: '#64748b', fontSize: '1.125rem' }}>インフラからデザインまで、包括的なITソリューション。</p>
+                    <h2 style={{ fontSize: isMobile ? '1.75rem' : '2.5rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#0f172a' }}>事業内容</h2>
+                    <p style={{ color: '#64748b', fontSize: isMobile ? '0.875rem' : '1.125rem' }}>インフラからデザインまで、包括的なITソリューション。</p>
                 </motion.div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gap: isMobile ? '1rem' : '2rem'
+                }}>
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
@@ -49,15 +65,15 @@ export const ServiceSection = () => {
                             whileHover={{ y: -5 }}
                             className="glass"
                             style={{
-                                padding: '2rem',
+                                padding: isMobile ? '1.5rem' : '2rem',
                                 borderRadius: '1rem',
                                 background: 'white',
                                 border: '1px solid rgba(226, 232, 240, 0.8)'
                             }}
                         >
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>{service.icon}</div>
-                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>{service.title}</h3>
-                            <p style={{ color: '#64748b', lineHeight: 1.6 }}>{service.description}</p>
+                            <div style={{ fontSize: isMobile ? '2rem' : '3rem', marginBottom: isMobile ? '1rem' : '1.5rem' }}>{service.icon}</div>
+                            <h3 style={{ fontSize: isMobile ? '1.125rem' : '1.5rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#0f172a' }}>{service.title}</h3>
+                            <p style={{ color: '#64748b', lineHeight: 1.6, fontSize: isMobile ? '0.875rem' : '1rem' }}>{service.description}</p>
                         </motion.div>
                     ))}
                 </div>

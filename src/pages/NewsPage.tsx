@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const newsData = [
     {
@@ -67,8 +68,19 @@ const newsData = [
 ];
 
 export const NewsPage = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
-        <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f0f9ff, #e0f2fe)' }}>
+        <div style={{ paddingTop: isMobile ? '70px' : '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f0f9ff, #e0f2fe)' }}>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -76,23 +88,23 @@ export const NewsPage = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <h1 style={{
-                        fontSize: '2.5rem',
+                        fontSize: isMobile ? '1.75rem' : '2.5rem',
                         fontWeight: 'bold',
-                        marginBottom: '3rem',
+                        marginBottom: isMobile ? '2rem' : '3rem',
                         textAlign: 'center',
                         color: '#0f172a'
                     }}>
                         ニュース
                         <span style={{
                             display: 'block',
-                            fontSize: '1rem',
+                            fontSize: isMobile ? '0.875rem' : '1rem',
                             color: '#3b82f6',
                             marginTop: '0.5rem',
                             fontWeight: 'normal'
                         }}>Latest News</span>
                     </h1>
 
-                    <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '4rem' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '2rem', paddingBottom: isMobile ? '2rem' : '4rem' }}>
                         {newsData.map((item, index) => (
                             <motion.article
                                 key={index}
@@ -102,7 +114,7 @@ export const NewsPage = () => {
                                 style={{
                                     background: 'rgba(255, 255, 255, 0.7)',
                                     backdropFilter: 'blur(10px)',
-                                    padding: '2rem',
+                                    padding: isMobile ? '1.25rem' : '2rem',
                                     borderRadius: '1rem',
                                     border: '1px solid rgba(255, 255, 255, 0.5)',
                                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
@@ -114,15 +126,15 @@ export const NewsPage = () => {
                                     background: '#eff6ff',
                                     color: '#3b82f6',
                                     borderRadius: '9999px',
-                                    fontSize: '0.875rem',
-                                    marginBottom: '1rem'
+                                    fontSize: isMobile ? '0.75rem' : '0.875rem',
+                                    marginBottom: '0.75rem'
                                 }}>
                                     {item.date}
                                 </div>
-                                <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1e293b' }}>
+                                <h2 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#1e293b' }}>
                                     {item.title}
                                 </h2>
-                                <p style={{ color: '#64748b', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                                <p style={{ color: '#64748b', lineHeight: 1.6, marginBottom: '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
                                     {item.content}
                                 </p>
                                 {item.link && (
@@ -136,7 +148,7 @@ export const NewsPage = () => {
                                             color: '#3b82f6',
                                             textDecoration: 'none',
                                             fontWeight: '500',
-                                            fontSize: '0.875rem'
+                                            fontSize: isMobile ? '0.75rem' : '0.875rem'
                                         }}
                                     >
                                         {item.linkText} →
