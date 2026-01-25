@@ -6,7 +6,7 @@ const newsData = [
         date: '2017.04.18',
         title: '資本金増資のお知らせ',
         content: '資本金を1,000万円に増資しました。',
-        link: 'https://vivid-base.github.io/onlinedesktop/aboutus/',
+        link: 'https://vivid-base.github.io/onlinedsktop/aboutus/',
         linkText: '会社概要はこちら'
     },
     {
@@ -20,7 +20,7 @@ const newsData = [
         date: '2011.10.01',
         title: '月額課金用請求書作成サービス スタート！',
         content: '毎月の請求書作成業務を効率化。自社で開発・運用してきた月額課金システムを利用して、毎月の請求書作成業務をサービスとして提供します。',
-        link: 'https://onlinedesktop.co.jp/service/service06',
+        link: 'https://onlinedsktop.co.jp/service/service06',
         linkText: '請求書作成サービスの詳細はこちら'
     },
     {

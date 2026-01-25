@@ -9,6 +9,22 @@
 body {
   font-family: var(--font-sans);
   background-color: #f8fafc;
-  color: #1e293b;
+  color: #0f172a;
+  /* Force dark navy (slate-900) */
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0f172a;
+}
+
+p,
+span,
+div {
+  color: inherit;
 }
