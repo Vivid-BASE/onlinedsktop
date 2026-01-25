@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+
 
 const newsData = [
     {
         date: '2017.04.18',
         title: '資本金増資のお知らせ',
         content: '資本金を1,000万円に増資しました。',
-        link: 'https://www.onlinedesktop.co.jp/aboutus/',
+        link: 'https://vivid-base.github.io/onlinedesktop/aboutus/',
         linkText: '会社概要はこちら'
     },
     {
@@ -68,93 +68,68 @@ const newsData = [
 ];
 
 export const NewsPage = () => {
-    const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     return (
-        <div style={{ paddingTop: isMobile ? '70px' : '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f0f9ff, #e0f2fe)' }}>
-            <div className="container">
+        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+            <div className="container mx-auto px-6 max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <h1 style={{
-                        fontSize: isMobile ? '1.75rem' : '2.5rem',
-                        fontWeight: 'bold',
-                        marginBottom: isMobile ? '2rem' : '3rem',
-                        textAlign: 'center',
-                        color: '#0f172a'
-                    }}>
-                        ニュース
-                        <span style={{
-                            display: 'block',
-                            fontSize: isMobile ? '0.875rem' : '1rem',
-                            color: '#3b82f6',
-                            marginTop: '0.5rem',
-                            fontWeight: 'normal'
-                        }}>Latest News</span>
-                    </h1>
+                    <header className="text-center mb-16">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                            News
+                        </h1>
+                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                            最新のお知らせ
+                        </p>
+                    </header>
 
-                    <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '2rem', paddingBottom: isMobile ? '2rem' : '4rem' }}>
+                    <div className="relative border-l-2 border-slate-200 ml-4 md:ml-6 space-y-12">
                         {newsData.map((item, index) => (
-                            <motion.article
+                            <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                style={{
-                                    background: 'rgba(255, 255, 255, 0.7)',
-                                    backdropFilter: 'blur(10px)',
-                                    padding: isMobile ? '1.25rem' : '2rem',
-                                    borderRadius: '1rem',
-                                    border: '1px solid rgba(255, 255, 255, 0.5)',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                                }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="relative pl-8 md:pl-12"
                             >
-                                <div style={{
-                                    display: 'inline-block',
-                                    padding: '0.25rem 0.75rem',
-                                    background: '#eff6ff',
-                                    color: '#3b82f6',
-                                    borderRadius: '9999px',
-                                    fontSize: isMobile ? '0.75rem' : '0.875rem',
-                                    marginBottom: '0.75rem'
-                                }}>
-                                    {item.date}
+                                <span className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-50"></span>
+
+                                <div className="group">
+                                    <div className="flex flex-col md:flex-row md:items-baseline md:gap-6 mb-2">
+                                        <time className="text-sm font-bold text-blue-600 font-mono">
+                                            {item.date}
+                                        </time>
+                                        <h2 className="text-xl font-bold text-slate-800 group-hover:text-blue-700 transition-colors">
+                                            {item.title}
+                                        </h2>
+                                    </div>
+
+                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                                        <p className="text-slate-600 leading-relaxed mb-4">
+                                            {item.content}
+                                        </p>
+
+                                        {item.link && (
+                                            <a
+                                                href={item.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+                                            >
+                                                {item.linkText}
+                                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                                <h2 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#1e293b' }}>
-                                    {item.title}
-                                </h2>
-                                <p style={{ color: '#64748b', lineHeight: 1.6, marginBottom: '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    {item.content}
-                                </p>
-                                {item.link && (
-                                    <a
-                                        href={item.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            display: 'inline-flex',
-                                            alignItems: 'center',
-                                            color: '#3b82f6',
-                                            textDecoration: 'none',
-                                            fontWeight: '500',
-                                            fontSize: isMobile ? '0.75rem' : '0.875rem'
-                                        }}
-                                    >
-                                        {item.linkText} →
-                                    </a>
-                                )}
-                            </motion.article>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>

@@ -1,215 +1,163 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-
 
 const cases = [
     {
         id: 'case01',
-        title: '事例01 (予約システム)',
-        description: '宿泊予約のオンライン化と在庫管理の自動化を実現。',
-        href: '#case01'
+        title: '宿泊施設様',
+        subtitle: '予約システム連携',
+        problem: [
+            '「電話、FAX、メールで受け付けていた宿泊予約をインターネットからも受け付けたい」',
+            '「空室在庫を極力減らしたいが、オーバーブッキングが心配だ」',
+            '「新着情報を、もっと頻繁に更新したい」'
+        ],
+        solution: {
+            title: 'オンライン宿泊予約システム連携',
+            description: '「予約プロ」を活用して日付ごとの在庫と連動したオンライン受付を実現。予約受付業務を自動化し、オーバーブッキングのリスクを低減。',
+            subSolution: {
+                title: 'お知らせ更新システム',
+                description: '「Movable Type」を活用し、お客様自身で簡単に新着情報を更新できる環境を構築。ランニングコストの削減にも貢献。'
+            }
+        },
+        link: 'http://www.tsumari-artfield.com/sansyo/',
+        linkText: '導入サイトを見る'
     },
     {
         id: 'case02',
-        title: '事例02 (会員システム)',
-        description: '会員情報のデータベース化と管理業務の効率化。',
-        href: '#case02'
+        title: '会員制サービス様',
+        subtitle: '会員システム導入',
+        problem: [
+            '「インターネット上で会員の告知を行い、そのままオンライン決済したい」',
+            '「決済完了後の会員登録やサイトへの招待を自動化したい」'
+        ],
+        solution: {
+            title: '既存Webパッケージの活用',
+            description: '会員管理とクレジット決済を連動させる既存Webパッケージシステムを活用。スクラッチ開発と比較して、短期間かつ低コストでの導入を実現しました。',
+        },
+        footerText: '※モバイルプロは、株式会社ヴイワン様の商品名称、商標または登録商標です。'
     },
     {
         id: 'case03',
-        title: '事例03 (AccessをWeb化)',
-        description: '社内AccessシステムをWeb化し、場所を選ばない業務環境を構築。',
-        href: '#case03'
+        title: '一般企業様',
+        subtitle: 'AccessデータベースのWeb化',
+        problem: [
+            '「社内の顧客データをAccessで管理しているが、複数人で同時に利用したい」',
+            '「ローカルサーバーでの運用に限界を感じている」'
+        ],
+        solution: {
+            title: 'レンタルサーバー／ブラウザ入力へ移行',
+            description: 'AccessデータをWebサーバー上のMySQLデータベースへ移行。インターネット経由でブラウザから利用可能になり、複数人での同時アクセスを実現。',
+            security: 'セキュリティ対策として、ID・パスワードに加え、事務所のグローバル固定IPアドレスによるアクセス制限を導入。'
+        }
     }
 ];
 
 export const CasePage = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
     return (
-        <div style={{ paddingTop: isMobile ? '70px' : '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc, #f1f5f9)' }}>
-            <div className="container" style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: isMobile ? '2rem' : '4rem' }}>
+        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+            <div className="container mx-auto px-6 max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <h1 style={{
-                        fontSize: isMobile ? '1.75rem' : '2.5rem',
-                        fontWeight: 'bold',
-                        marginBottom: isMobile ? '2rem' : '3rem',
-                        textAlign: 'center',
-                        color: '#0f172a'
-                    }}>
-                        導入事例
-                        <span style={{
-                            display: 'block',
-                            fontSize: isMobile ? '0.875rem' : '1rem',
-                            color: '#3b82f6',
-                            marginTop: '0.5rem',
-                            fontWeight: 'normal'
-                        }}>Case Studies</span>
-                    </h1>
-
-                    {/* Case Studies Grid Navigation */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
-                        gap: isMobile ? '1rem' : '2rem',
-                        marginBottom: isMobile ? '2rem' : '4rem'
-                    }}>
-                        {cases.map((item, index) => (
-                            <motion.a
-                                key={item.id}
-                                href={item.href}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                style={{
-                                    display: 'block',
-                                    background: 'white',
-                                    padding: isMobile ? '1.25rem' : '2rem',
-                                    borderRadius: '1rem',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-                                    border: '1px solid #e2e8f0',
-                                    textDecoration: 'none',
-                                    cursor: 'pointer'
-                                }}
-                                whileHover={{ y: -5, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
-                            >
-                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#1e293b' }}>
-                                    {item.title}
-                                </h3>
-                                <p style={{ color: '#64748b', marginBottom: '1rem', lineHeight: 1.6, fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    {item.description}
-                                </p>
-                                <span style={{ color: '#3b82f6', fontWeight: '500', display: 'inline-flex', alignItems: 'center', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    詳細を見る ↓
-                                </span>
-                            </motion.a>
-                        ))}
-                    </div>
-
-                    {/* Case 01 Details */}
-                    <div id="case01" style={{ background: 'white', padding: isMobile ? '1.5rem' : '3rem', borderRadius: '1rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0', marginBottom: isMobile ? '1.5rem' : '3rem' }}>
-                        <h2 style={{ fontSize: isMobile ? '1.25rem' : '1.75rem', fontWeight: 'bold', marginBottom: isMobile ? '1.5rem' : '2rem', color: '#0f172a', borderBottom: '2px solid #e2e8f0', paddingBottom: '1rem' }}>
-                            事例01 (予約システム)
-                        </h2>
-
-                        <div style={{ marginBottom: isMobile ? '1.5rem' : '3rem' }}>
-                            <p style={{ color: '#475569', lineHeight: 1.8, marginBottom: '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                宿泊施設のお客様からのご要望：<br />
-                                「電話、ＦＡＸ、メールで受け付けていた宿泊予約をインターネットからも受け付けたい。」<br />
-                                「空室在庫を極力減らしたいが、オーバーブッキングが心配だ。」<br />
-                                「新着情報を、もっと頻繁に更新したい。」
-                            </p>
-                            <a
-                                href="http://www.tsumari-artfield.com/sansyo/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ color: '#3b82f6', textDecoration: 'none', display: 'inline-block', marginBottom: '1rem', fontSize: isMobile ? '0.875rem' : '1rem', wordBreak: 'break-all' }}
-                            >
-                                http://www.tsumari-artfield.com/sansyo/
-                            </a>
-                        </div>
-
-                        <section style={{ marginBottom: isMobile ? '1.5rem' : '2.5rem' }}>
-                            <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <span style={{ width: '4px', height: '20px', background: '#3b82f6', borderRadius: '2px', flexShrink: 0 }}></span>
-                                <span>予約受付部分：オンライン宿泊予約システム 連携</span>
-                            </h3>
-                            <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                アビリティコンサルタント社『 予約プロ 』を活用して日付ごとの在庫と連動したオンライン受付にしました。<br />
-                                これは主に予約受付業務を自動化するためのシステムです。オンライン予約を可能にすることで、インターネットで自動的に予約受付ができます。
-                            </p>
-                        </section>
-
-                        <section>
-                            <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <span style={{ width: '4px', height: '20px', background: '#3b82f6', borderRadius: '2px', flexShrink: 0 }}></span>
-                                <span>お知らせ部分：お知らせ更新システム 利用</span>
-                            </h3>
-                            <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                Six Apart社『 Ｍｏｖａｂｌｅ Ｔｙｐｅ 』を活用してお客様側で更新。<br />
-                                お知らせの更新作業をお客さま自身で行うことが可能になりますので、月額のランニング費用のコスト削減にもつながります。
-                            </p>
-                        </section>
-                    </div>
-
-                    {/* Case 02 Details */}
-                    <div id="case02" style={{ background: 'white', padding: isMobile ? '1.5rem' : '3rem', borderRadius: '1rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0', marginBottom: isMobile ? '1.5rem' : '3rem' }}>
-                        <h2 style={{ fontSize: isMobile ? '1.25rem' : '1.75rem', fontWeight: 'bold', marginBottom: isMobile ? '1.5rem' : '2rem', color: '#0f172a', borderBottom: '2px solid #e2e8f0', paddingBottom: '1rem' }}>
-                            事例02 (会員システム)
-                        </h2>
-
-                        <p style={{ color: '#475569', lineHeight: 1.8, marginBottom: isMobile ? '1.5rem' : '2rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                            インターネット上で会員の告知を行い、クレジットカードでオンライン決済をする仕組みです。<br />
-                            クレジットで決済をいただいた方への会員サイトへの招待を自動化してあります。
+                    <header className="text-center mb-20">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                            Case Studies
+                        </h1>
+                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                            導入事例
                         </p>
+                    </header>
 
-                        <section>
-                            <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <span style={{ width: '4px', height: '20px', background: '#10b981', borderRadius: '2px', flexShrink: 0 }}></span>
-                                <span>既存Webパッケージの活用</span>
-                            </h3>
-                            <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', marginBottom: '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                すべてのシステムを新規開発するのではなく、既存のＷｅｂパッケージシステムを活用して、短期間で効率的な開発を行いました。
-                            </p>
-                            <p style={{ color: '#94a3b8', fontSize: isMobile ? '0.75rem' : '0.875rem' }}>
-                                ※モバイルプロは、株式会社ヴイワン様の商品名称、商標または、登録商標です。<br />
-                                ※他のすべての社名および製品名はそれぞれの企業の商標もしくは登録商標です。
-                            </p>
-                        </section>
-                    </div>
+                    <div className="space-y-24">
+                        {cases.map((item) => (
+                            <motion.section
+                                key={item.id}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.6 }}
+                                className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100"
+                            >
+                                <div className="bg-slate-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div>
+                                        <div className="text-blue-400 font-bold mb-1 tracking-wider text-sm">{item.id.toUpperCase()}</div>
+                                        <h2 className="text-2xl md:text-3xl font-bold">{item.title}</h2>
+                                        <p className="text-slate-400 mt-1">{item.subtitle}</p>
+                                    </div>
+                                    {item.link && (
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-colors text-sm"
+                                        >
+                                            {item.linkText}
+                                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                        </a>
+                                    )}
+                                </div>
 
-                    {/* Case 03 Details */}
-                    <div id="case03" style={{ background: 'white', padding: isMobile ? '1.5rem' : '3rem', borderRadius: '1rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
-                        <h2 style={{ fontSize: isMobile ? '1.25rem' : '1.75rem', fontWeight: 'bold', marginBottom: isMobile ? '1.5rem' : '2rem', color: '#0f172a', borderBottom: '2px solid #e2e8f0', paddingBottom: '1rem' }}>
-                            事例03 (AccessをWeb化)
-                        </h2>
+                                <div className="grid md:grid-cols-2">
+                                    {/* Problem Section */}
+                                    <div className="p-8 md:p-10 bg-slate-50 border-r border-slate-100">
+                                        <h3 className="flex items-center text-lg font-bold text-slate-700 mb-6 uppercase tracking-wider">
+                                            <span className="w-8 h-8 bg-red-100 text-red-500 rounded-full flex items-center justify-center mr-3 font-extrabold">!</span>
+                                            Challenge
+                                        </h3>
+                                        <ul className="space-y-4">
+                                            {item.problem.map((prob, i) => (
+                                                <li key={i} className="flex items-start text-slate-600 leading-relaxed">
+                                                    <span className="text-red-400 mr-2 mt-1.5">•</span>
+                                                    {prob}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
 
-                        <div style={{ display: 'grid', gap: isMobile ? '1.5rem' : '2rem' }}>
-                            <section>
-                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <span style={{ width: '4px', height: '20px', background: '#f59e0b', borderRadius: '2px', flexShrink: 0 }}></span>
-                                    <span>課題：Microsoft Accessを複数人で利用したい</span>
-                                </h3>
-                                <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    お客様データ（Microsoft社製 Accessデータベース）を複数人で、ローカルサーバー上で運用されていました。<br />
-                                    しかし、Accessは本来複数での同時使用には適さないため、運用に課題がありました。
-                                </p>
-                            </section>
+                                    {/* Solution Section */}
+                                    <div className="p-8 md:p-10 bg-white">
+                                        <h3 className="flex items-center text-lg font-bold text-blue-600 mb-6 uppercase tracking-wider">
+                                            <span className="w-8 h-8 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mr-3 font-extrabold">✓</span>
+                                            Solution
+                                        </h3>
 
-                            <section>
-                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <span style={{ width: '4px', height: '20px', background: '#f59e0b', borderRadius: '2px', flexShrink: 0 }}></span>
-                                    <span>解決：レンタルサーバー／ブラウザ入力へ移行</span>
-                                </h3>
-                                <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    AccessデータをWebサーバー上のMySQLデータベースへ移行しました。<br />
-                                    これにより、インターネット経由でブラウザから利用することができるようになり、複数の方での同時使用が可能になりました。
-                                </p>
-                            </section>
+                                        <div className="space-y-6">
+                                            <div>
+                                                <h4 className="font-bold text-slate-800 mb-2">{item.solution.title}</h4>
+                                                <p className="text-slate-600 leading-relaxed text-sm">
+                                                    {item.solution.description}
+                                                </p>
+                                            </div>
 
-                            <section>
-                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <span style={{ width: '4px', height: '20px', background: '#f59e0b', borderRadius: '2px', flexShrink: 0 }}></span>
-                                    <span>セキュリティ：事務所の固定IPアドレスによるアクセス制限</span>
-                                </h3>
-                                <p style={{ color: '#64748b', lineHeight: 1.8, paddingLeft: isMobile ? '0' : '1rem', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                    インターネット経由での利用に伴うセキュリティリスクに対しては、ＩＤ・パスワードだけでなく、事務所のグローバル固定ＩＰ制限をかけることにより、事務所外からの不正アクセスをガードしています。
-                                </p>
-                            </section>
-                        </div>
+                                            {item.solution.subSolution && (
+                                                <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                                                    <h4 className="font-bold text-blue-800 text-sm mb-1">{item.solution.subSolution.title}</h4>
+                                                    <p className="text-blue-700 text-sm leading-relaxed">
+                                                        {item.solution.subSolution.description}
+                                                    </p>
+                                                </div>
+                                            )}
+
+                                            {item.solution.security && (
+                                                <div className="mt-4 flex items-start p-4 bg-slate-50 rounded-lg border border-slate-100">
+                                                    <svg className="w-5 h-5 text-slate-400 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                                        {item.solution.security}
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {item.footerText && (
+                                    <div className="bg-slate-50 px-8 py-4 border-t border-slate-100 text-xs text-slate-400">
+                                        {item.footerText}
+                                    </div>
+                                )}
+                            </motion.section>
+                        ))}
                     </div>
                 </motion.div>
             </div>

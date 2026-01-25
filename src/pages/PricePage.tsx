@@ -1,94 +1,114 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 const products = [
     {
-        title: 'オンラインデスクトップ社　月額課金　請求書作成サービス',
-        description: '月額課金ビジネスに特化した請求書作成・発行代行サービス。',
+        title: '月額課金 請求書作成サービス',
+        provider: 'オンラインデスクトップ社',
+        description: '月額課金ビジネスに特化した請求書作成・発行代行サービス。毎月の面倒な請求業務から解放されます。',
+        features: ['請求書自動作成', 'メール送付代行', '入金消込', '未回収管理'],
+        recommended: true
     },
     {
-        title: 'ＢＵＳＩＣＯＭ社製　ＢＣ－ＰＯＳ',
-        description: 'パソコンがPOSレジに。高機能・低価格なパソコンPOSシステム。',
+        title: 'ＢＣ－ＰＯＳ',
+        provider: 'ＢＵＳＩＣＯＭ社製',
+        description: 'パソコンがPOSレジに。高機能・低価格なパソコンPOSシステム。小売店・飲食店など幅広い業種に対応。',
+        features: ['在庫管理', '顧客管理', 'ポイント発行', '売上分析']
     },
     {
-        title: 'アビリティコンサルタント社製　予約プロプラス',
-        description: '宿泊施設向けの多機能な予約システム。',
+        title: '予約プロプラス',
+        provider: 'アビリティコンサルタント社製',
+        description: '宿泊施設向けの多機能な予約システム。公式サイトからの直販比率を高め、利益率向上に貢献します。',
+        features: ['空室連動', 'プラン管理', '事前カード決済', 'サイトコントローラー連携']
     },
     {
-        title: 'ブレイン社製　ブレインフォーム',
-        description: '専門知識不要で、誰でも簡単にフォーム作成ができるツール。',
+        title: 'ブレインフォーム',
+        provider: 'ブレイン社製',
+        description: '専門知識不要で、誰でも簡単にフォーム作成ができるツール。問合せフォームやアンケートフォームを短時間で作成。',
+        features: ['ドラッグ＆ドロップ', 'スマホ対応', 'SSL暗号化', 'CSVダウンロード']
     }
 ];
 
 export const PricePage = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
     return (
-        <div style={{ paddingTop: isMobile ? '70px' : '100px', minHeight: '100vh', background: 'linear-gradient(to bottom right, #f8fafc, #f1f5f9)' }}>
-            <div className="container" style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: isMobile ? '2rem' : '4rem' }}>
+        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+            <div className="container mx-auto px-6 max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <h1 style={{
-                        fontSize: isMobile ? '1.5rem' : '2.5rem',
-                        fontWeight: 'bold',
-                        marginBottom: isMobile ? '2rem' : '3rem',
-                        textAlign: 'center',
-                        color: '#0f172a'
-                    }}>
-                        料金・取り扱い製品
-                        <span style={{
-                            display: 'block',
-                            fontSize: isMobile ? '0.875rem' : '1rem',
-                            color: '#3b82f6',
-                            marginTop: '0.5rem',
-                            fontWeight: 'normal'
-                        }}>Price & Products</span>
-                    </h1>
+                    <header className="text-center mb-16">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                            Price & Products
+                        </h1>
+                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                            料金・取り扱い製品
+                        </p>
+                    </header>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: isMobile ? '1rem' : '2rem' }}>
+                    <div className="grid md:grid-cols-2 gap-8">
                         {products.map((product, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                style={{
-                                    background: 'white',
-                                    padding: isMobile ? '1.25rem' : '2rem',
-                                    borderRadius: '1rem',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-                                    border: '1px solid #e2e8f0',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center'
-                                }}
+                                className={`relative flex flex-col bg-white rounded-2xl p-8 border ${product.recommended ? 'border-blue-500 ring-4 ring-blue-50 shadow-xl' : 'border-slate-200 shadow-sm hover:shadow-lg'} transition-shadow duration-300`}
                             >
-                                <h3 style={{ fontSize: isMobile ? '1rem' : '1.5rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#1e293b' }}>
-                                    {product.title}
-                                </h3>
-                                <p style={{ color: '#64748b', fontSize: isMobile ? '0.875rem' : '1.125rem', lineHeight: 1.6 }}>
+                                {product.recommended && (
+                                    <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wide">
+                                        Recommended
+                                    </div>
+                                )}
+
+                                <div className="mb-6">
+                                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+                                        {product.provider}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-slate-800 tracking-tight">
+                                        {product.title}
+                                    </h3>
+                                </div>
+
+                                <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
                                     {product.description}
                                 </p>
-                                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #f1f5f9' }}>
-                                    <Link to="/" style={{ color: '#3b82f6', fontWeight: 'bold', textDecoration: 'none', fontSize: isMobile ? '0.875rem' : '1rem' }}>
-                                        お問い合わせ・お見積もりはこちら →
+
+                                <ul className="space-y-3 mb-8">
+                                    {product.features.map((feature, i) => (
+                                        <li key={i} className="flex items-center text-sm text-slate-500 font-medium">
+                                            <svg className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="mt-auto pt-6 border-t border-slate-100">
+                                    <Link
+                                        to="/"
+                                        className={`block w-full text-center py-3 rounded-xl font-bold transition-all transform hover:scale-[1.02] ${product.recommended ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800'}`}
+                                    >
+                                        お問い合わせ・お見積もり
                                     </Link>
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+
+                    <div className="mt-20 text-center bg-blue-50 rounded-3xl p-10 md:p-16">
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                            導入のご相談はこちら
+                        </h2>
+                        <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+                            お客様の業務内容や課題に合わせて、最適なプランをご提案させていただきます。<br className="hidden md:inline" />
+                            まずはお気軽にお問い合わせください。
+                        </p>
+                        <Link to="/" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-xl shadow-slate-200">
+                            お問い合わせフォームへ
+                            <svg className="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </Link>
                     </div>
                 </motion.div>
             </div>
