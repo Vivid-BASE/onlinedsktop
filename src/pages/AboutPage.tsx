@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const AboutPage = () => {
     return (
-    return (
         <div className="min-h-screen bg-stone-50 pt-[100px] pb-20">
             <div className="container mx-auto px-6 max-w-4xl">
                 <motion.div
