@@ -87,7 +87,7 @@ export const PricePage = () => {
 
                                 <div className="mt-auto pt-6 border-t border-stone-100">
                                     <Link
-                                        to="/"
+                                        to="/contact"
                                         className={`block w-full text-center py-3 rounded-xl font-bold transition-all transform hover:scale-[1.02] ${product.recommended ? 'bg-amber-600 text-white hover:bg-amber-700 shadow-lg shadow-amber-200' : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800'}`}
                                     >
                                         お問い合わせ・お見積もり
@@ -98,14 +98,14 @@ export const PricePage = () => {
                     </div>
 
                     <div className="mt-20 text-center bg-amber-50 rounded-3xl p-10 md:p-16">
-                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                        <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-4">
                             導入のご相談はこちら
                         </h2>
-                        <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+                        <p className="text-stone-600 mb-8 max-w-2xl mx-auto">
                             お客様の業務内容や課題に合わせて、最適なプランをご提案させていただきます。<br className="hidden md:inline" />
                             まずはお気軽にお問い合わせください。
                         </p>
-                        <Link to="/" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-xl shadow-slate-200">
+                        <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-stone-900 rounded-full hover:bg-stone-800 transition-colors shadow-xl shadow-stone-200">
                             お問い合わせフォームへ
                             <svg className="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </Link>
