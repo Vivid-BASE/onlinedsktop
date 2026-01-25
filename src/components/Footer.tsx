@@ -74,18 +74,20 @@ export const Footer = () => {
                                 東京都武蔵野市吉祥寺本町1-20-1<br />
                                 吉祥寺永谷シティプラザ1002<br />
                             </address>
-                            <dl style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.5rem 1rem' }}>
-                                <dt style={{ color: '#78716c' }}>資本金</dt>
-                                <dd>10,000,000円</dd>
-                                <dt style={{ color: '#78716c' }}>設立</dt>
-                                <dd>2006年5月8日</dd>
-                                <dt style={{ color: '#78716c' }}>取引銀行</dt>
-                                <dd>三菱東京UFJ銀行 元住吉支店</dd>
-                            </dl>
-                            <div style={{ marginTop: '1rem' }}>
-                                <p style={{ color: '#78716c', marginBottom: '0.25rem' }}>事業内容</p>
-                                <p style={{ fontSize: '0.8rem' }}>インターネット関連事業 / ASP販売 / サーバ設定管理 / Webシステム開発 / ホームページ制作</p>
-                            </div>
+                            <Link to="/company" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                color: '#d6d3d1',
+                                textDecoration: 'none',
+                                border: '1px solid #57534e',
+                                padding: '0.5rem 1rem',
+                                borderRadius: '0.375rem',
+                                fontSize: '0.875rem',
+                                transition: 'all 0.2s'
+                            }}>
+                                会社概要ページへ
+                                <svg style={{ width: '16px', height: '16px', marginLeft: '0.5rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                            </Link>
                         </div>
                     </div>
                 </div>

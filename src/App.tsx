@@ -8,6 +8,7 @@ import { ServicePage } from './pages/ServicePage';
 import { CasePage } from './pages/CasePage';
 import { PricePage } from './pages/PricePage';
 import { ContactPage } from './pages/ContactPage';
+import { CompanyPage } from './pages/CompanyPage';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/case" element={<CasePage />} />
           <Route path="/price" element={<PricePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/company" element={<CompanyPage />} />
         </Routes>
         <Footer />
       </div>
