@@ -31,7 +31,8 @@ const products = [
 
 export const PricePage = () => {
     return (
-        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+    return (
+        <div className="min-h-screen bg-stone-50 pt-[100px] pb-20">
             <div className="container mx-auto px-6 max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -39,10 +40,10 @@ export const PricePage = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <header className="text-center mb-16">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight">
                             Price & Products
                         </h1>
-                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                        <p className="text-amber-600 mt-4 font-medium tracking-wide text-lg">
                             料金・取り扱い製品
                         </p>
                     </header>
@@ -55,40 +56,40 @@ export const PricePage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className={`relative flex flex-col bg-white rounded-2xl p-8 border ${product.recommended ? 'border-blue-500 ring-4 ring-blue-50 shadow-xl' : 'border-slate-200 shadow-sm hover:shadow-lg'} transition-shadow duration-300`}
+                                className={`relative flex flex-col bg-white rounded-2xl p-8 border ${product.recommended ? 'border-amber-500 ring-4 ring-amber-50 shadow-xl' : 'border-stone-200 shadow-sm hover:shadow-lg'} transition-shadow duration-300`}
                             >
                                 {product.recommended && (
-                                    <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wide">
+                                    <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wide">
                                         Recommended
                                     </div>
                                 )}
 
                                 <div className="mb-6">
-                                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+                                    <div className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">
                                         {product.provider}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-800 tracking-tight">
+                                    <h3 className="text-2xl font-bold text-stone-800 tracking-tight">
                                         {product.title}
                                     </h3>
                                 </div>
 
-                                <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
+                                <p className="text-stone-600 mb-8 leading-relaxed flex-grow">
                                     {product.description}
                                 </p>
 
                                 <ul className="space-y-3 mb-8">
                                     {product.features.map((feature, i) => (
-                                        <li key={i} className="flex items-center text-sm text-slate-500 font-medium">
-                                            <svg className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                        <li key={i} className="flex items-center text-sm text-stone-500 font-medium">
+                                            <svg className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                             {feature}
                                         </li>
                                     ))}
                                 </ul>
 
-                                <div className="mt-auto pt-6 border-t border-slate-100">
+                                <div className="mt-auto pt-6 border-t border-stone-100">
                                     <Link
                                         to="/"
-                                        className={`block w-full text-center py-3 rounded-xl font-bold transition-all transform hover:scale-[1.02] ${product.recommended ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800'}`}
+                                        className={`block w-full text-center py-3 rounded-xl font-bold transition-all transform hover:scale-[1.02] ${product.recommended ? 'bg-amber-600 text-white hover:bg-amber-700 shadow-lg shadow-amber-200' : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800'}`}
                                     >
                                         お問い合わせ・お見積もり
                                     </Link>
@@ -97,7 +98,7 @@ export const PricePage = () => {
                         ))}
                     </div>
 
-                    <div className="mt-20 text-center bg-blue-50 rounded-3xl p-10 md:p-16">
+                    <div className="mt-20 text-center bg-amber-50 rounded-3xl p-10 md:p-16">
                         <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                             導入のご相談はこちら
                         </h2>

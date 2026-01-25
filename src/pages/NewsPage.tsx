@@ -71,7 +71,8 @@ export const NewsPage = () => {
 
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+    return (
+        <div className="min-h-screen bg-stone-50 pt-[100px] pb-20">
             <div className="container mx-auto px-6 max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -79,15 +80,15 @@ export const NewsPage = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <header className="text-center mb-16">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight">
                             News
                         </h1>
-                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                        <p className="text-amber-600 mt-4 font-medium tracking-wide text-lg">
                             最新のお知らせ
                         </p>
                     </header>
 
-                    <div className="relative border-l-2 border-slate-200 ml-4 md:ml-6 space-y-12">
+                    <div className="relative border-l-2 border-stone-200 ml-4 md:ml-6 space-y-12">
                         {newsData.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -97,20 +98,20 @@ export const NewsPage = () => {
                                 transition={{ duration: 0.5, delay: index * 0.05 }}
                                 className="relative pl-8 md:pl-12"
                             >
-                                <span className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-50"></span>
+                                <span className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-stone-50"></span>
 
                                 <div className="group">
                                     <div className="flex flex-col md:flex-row md:items-baseline md:gap-6 mb-2">
-                                        <time className="text-sm font-bold text-blue-600 font-mono">
+                                        <time className="text-sm font-bold text-amber-600 font-mono">
                                             {item.date}
                                         </time>
-                                        <h2 className="text-xl font-bold text-slate-800 group-hover:text-blue-700 transition-colors">
+                                        <h2 className="text-xl font-bold text-stone-800 group-hover:text-amber-700 transition-colors">
                                             {item.title}
                                         </h2>
                                     </div>
 
-                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                                        <p className="text-slate-600 leading-relaxed mb-4">
+                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                                        <p className="text-stone-600 leading-relaxed mb-4">
                                             {item.content}
                                         </p>
 
@@ -119,7 +120,7 @@ export const NewsPage = () => {
                                                 href={item.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+                                                className="inline-flex items-center text-sm font-semibold text-amber-600 hover:text-amber-800 transition-colors"
                                             >
                                                 {item.linkText}
                                                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
