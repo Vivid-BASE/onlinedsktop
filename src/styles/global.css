@@ -8,8 +8,10 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #fafaf9;
+  /* stone-50 */
+  color: #1c1917;
+  /* stone-900 */
   /* Force dark navy (slate-900) */
   -webkit-font-smoothing: antialiased;
 }
@@ -20,7 +22,8 @@ h3,
 h4,
 h5,
 h6 {
-  color: #0f172a;
+  color: #1c1917;
+  /* stone-900 */
 }
 
 p,

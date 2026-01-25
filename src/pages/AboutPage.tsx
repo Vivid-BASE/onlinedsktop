@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const AboutPage = () => {
     return (
-        <div className="min-h-screen bg-slate-50 pt-[100px] pb-20">
+    return (
+        <div className="min-h-screen bg-stone-50 pt-[100px] pb-20">
             <div className="container mx-auto px-6 max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -12,11 +13,11 @@ export const AboutPage = () => {
                 >
                     {/* Hero Section */}
                     <header className="text-center mb-20">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight sm:px-16 xl:px-48">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight sm:px-16 xl:px-48">
                             私たちは<br className="md:hidden" />
-                            <span className="text-blue-600">オンラインデスクトップ</span>です
+                            <span className="text-amber-600">オンラインデスクトップ</span>です
                         </h1>
-                        <p className="mt-6 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        <p className="mt-6 text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
                             インターネットを通じて、企業の業務効率化と<br className="hidden md:block" />
                             新しい価値の創造を支援します。
                         </p>

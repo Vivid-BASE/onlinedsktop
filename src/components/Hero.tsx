@@ -21,7 +21,7 @@ export const Hero = () => {
             display: 'flex',
             alignItems: 'center',
             overflow: 'hidden',
-            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+            background: 'linear-gradient(135deg, #fffbeb 0%, #f5f5f4 100%)', // amber-50 to stone-100
             padding: isMobile ? '2rem 0' : '0'
         }}>
             {/* Background Decor */}
@@ -31,7 +31,7 @@ export const Hero = () => {
                 right: '-5%',
                 width: isMobile ? '300px' : '500px',
                 height: isMobile ? '300px' : '500px',
-                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%)', // amber-600 with opacity
                 borderRadius: '50%',
                 zIndex: 0
             }} />
@@ -60,8 +60,8 @@ export const Hero = () => {
                         style={{
                             display: 'inline-block',
                             padding: '0.5rem 1rem',
-                            background: 'rgba(59, 130, 246, 0.1)',
-                            color: '#3b82f6',
+                            background: 'rgba(217, 119, 6, 0.1)', // amber-600
+                            color: '#d97706', // amber-600
                             borderRadius: '2rem',
                             fontSize: isMobile ? '0.75rem' : '0.875rem',
                             fontWeight: 600,
@@ -74,15 +74,15 @@ export const Hero = () => {
                         fontSize: isMobile ? '1.75rem' : '3rem',
                         lineHeight: 1.3,
                         marginBottom: '1rem',
-                        color: '#0f172a',
+                        color: '#1c1917', // stone-900
                         fontFamily: "sans-serif"
                     }}>
                         請求業務を、<br />
-                        もっと<span style={{ color: '#3b82f6' }}>スマート</span>に。
+                        もっと<span style={{ color: '#d97706' }}>スマート</span>に。 {/* amber-600 */}
                     </h2>
                     <p style={{
                         fontSize: isMobile ? '0.875rem' : '1rem',
-                        color: '#64748b',
+                        color: '#57534e', // stone-600
                         marginBottom: '1.5rem',
                         maxWidth: '540px',
                         lineHeight: 1.8
@@ -98,14 +98,14 @@ export const Hero = () => {
                     }}>
                         <button style={{
                             padding: isMobile ? '0.875rem 1.5rem' : '1rem 2rem',
-                            background: '#3b82f6',
+                            background: '#d97706', // amber-600
                             color: 'white',
                             border: 'none',
                             borderRadius: '0.5rem',
                             fontSize: isMobile ? '0.875rem' : '1rem',
                             fontWeight: 600,
                             cursor: 'pointer',
-                            boxShadow: '0 4px 6px -1px rgba(59, 130, 246, 0.5)',
+                            boxShadow: '0 4px 6px -1px rgba(217, 119, 6, 0.5)', // amber-600 shadow
                             width: isMobile ? '100%' : 'auto'
                         }}>
                             無料で相談する
@@ -113,8 +113,8 @@ export const Hero = () => {
                         <button style={{
                             padding: isMobile ? '0.875rem 1.5rem' : '1rem 2rem',
                             background: 'white',
-                            color: '#0f172a',
-                            border: '1px solid #e2e8f0',
+                            color: '#1c1917', // stone-900
+                            border: '1px solid #e7e5e4', // stone-200
                             borderRadius: '0.5rem',
                             fontSize: isMobile ? '0.875rem' : '1rem',
                             fontWeight: 600,
