@@ -13,8 +13,7 @@ export const AboutPage = () => {
                     {/* Hero Section */}
                     <header className="text-center mb-20">
                         <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight sm:px-16 xl:px-48">
-                            私たちは<br className="md:hidden" />
-                            <span className="text-amber-600">オンラインデスクトップ</span>です
+                            <span className="text-amber-600">オンラインデスクトップ</span>
                         </h1>
                         <p className="mt-6 text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
                             インターネットを通じて、企業の業務効率化と<br className="hidden md:block" />
