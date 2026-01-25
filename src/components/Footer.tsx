@@ -14,6 +14,7 @@ export const Footer = () => {
     }, []);
 
     return (
+    return (
         <footer style={{ background: '#1c1917', color: 'white', padding: isMobile ? '2rem 0 1.5rem' : '4rem 0 2rem' }}>
             <div className="container">
                 <div style={{
@@ -25,11 +26,11 @@ export const Footer = () => {
                     <div>
                         <div style={{ fontSize: isMobile ? '1.125rem' : '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                             <div style={{ width: '20px', height: '20px', background: 'white', borderRadius: '50%' }} />
-                            OnlineDesktop
+                            オンラインデスクトップ株式会社
                         </div>
                         <p style={{ color: '#a8a29e', fontSize: isMobile ? '0.8rem' : '0.875rem', lineHeight: 1.6 }}>
-                            Better surprise for the world.<br />
-                            テクノロジーで、ビジネスの現場に「快適」な驚きを。
+                            インターネットオンラインサービスを<br />
+                            水道のように安価に大量に社会に供給する
                         </p>
                     </div>
                     <div>
@@ -42,7 +43,7 @@ export const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h4 style={{ fontWeight: 'bold', marginBottom: '0.75rem', fontSize: isMobile ? '0.9rem' : '1rem' }}>会社情報</h4>
+                        <h4 style={{ fontWeight: 'bold', marginBottom: '0.75rem', fontSize: isMobile ? '0.9rem' : '1rem' }}>サイトマップ</h4>
                         <ul style={{ color: '#a8a29e', fontSize: isMobile ? '0.8rem' : '0.875rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             <li><Link to="/about" style={{ color: 'inherit', textDecoration: 'none' }}>私たちについて</Link></li>
                             <li><Link to="/news" style={{ color: 'inherit', textDecoration: 'none' }}>ニュース</Link></li>
@@ -52,7 +53,7 @@ export const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h4 style={{ fontWeight: 'bold', marginBottom: '0.75rem', fontSize: isMobile ? '0.9rem' : '1rem' }}>お問い合わせ</h4>
+                        <h4 style={{ fontWeight: 'bold', marginBottom: '0.75rem', fontSize: isMobile ? '0.9rem' : '1rem' }}>会社概要</h4>
                         <address style={{ color: '#a8a29e', fontSize: isMobile ? '0.8rem' : '0.875rem', fontStyle: 'normal', lineHeight: 1.6 }}>
                             〒180-0004<br />
                             東京都武蔵野市吉祥寺本町1-20-1<br />
