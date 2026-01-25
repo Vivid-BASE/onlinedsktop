@@ -79,11 +79,11 @@ export const CasePage = () => {
                                 transition={{ duration: 0.6 }}
                                 className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100"
                             >
-                                <div className="bg-blue-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div>
-                                        <div className="text-blue-400 font-bold mb-1 tracking-wider text-sm">{item.id.toUpperCase()}</div>
+                                        <div className="text-blue-100 font-bold mb-1 tracking-wider text-sm opacity-90">{item.id.toUpperCase()}</div>
                                         <h2 className="text-2xl md:text-3xl font-bold">{item.title}</h2>
-                                        <p className="text-slate-400 mt-1">{item.subtitle}</p>
+                                        <p className="text-blue-50 mt-1 font-medium">{item.subtitle}</p>
                                     </div>
                                     {item.link && (
                                         <a

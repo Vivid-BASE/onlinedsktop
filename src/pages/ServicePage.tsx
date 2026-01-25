@@ -105,11 +105,11 @@ export const ServicePage = () => {
                         viewport={{ once: true }}
                         className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100"
                     >
-                        <div className="bg-blue-900 p-8 md:p-12 text-center">
+                        <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 md:p-12 text-center">
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                                 請求書発行業務の自動化
                             </h2>
-                            <p className="text-blue-200">
+                            <p className="text-blue-100 font-medium">
                                 三菱東京ＵＦＪ銀行様の「おまかせバンク」サービスとの連携により実現
                             </p>
                         </div>
