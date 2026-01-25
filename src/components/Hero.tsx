@@ -36,7 +36,7 @@ export const Hero = () => {
                 zIndex: 0
             }} />
 
-            <div className="container" style={{
+            <div className="container mx-auto px-6" style={{
                 position: 'relative',
                 zIndex: 1,
                 display: isMobile ? 'flex' : 'grid',

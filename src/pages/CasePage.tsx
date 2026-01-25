@@ -18,8 +18,8 @@ const cases = [
                 description: '「Movable Type」を活用し、お客様自身で簡単に新着情報を更新できる環境を構築。ランニングコストの削減にも貢献。'
             }
         },
-        link: 'http://www.tsumari-artfield.com/sansyo/',
-        linkText: '導入サイトを見る'
+        link: '',
+        linkText: ''
     },
     {
         id: 'case02',
@@ -79,7 +79,7 @@ export const CasePage = () => {
                                 transition={{ duration: 0.6 }}
                                 className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100"
                             >
-                                <div className="bg-slate-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="bg-blue-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div>
                                         <div className="text-blue-400 font-bold mb-1 tracking-wider text-sm">{item.id.toUpperCase()}</div>
                                         <h2 className="text-2xl md:text-3xl font-bold">{item.title}</h2>
