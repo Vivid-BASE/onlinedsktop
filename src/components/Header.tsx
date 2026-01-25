@@ -56,6 +56,12 @@ export const Header = () => {
             return;
         }
 
+        if (item === 'お問い合わせ') {
+            navigate('/contact');
+            window.scrollTo(0, 0);
+            return;
+        }
+
         // Map Japanese items to section IDs
         const sectionMap: { [key: string]: string } = {
             'ホーム': 'home',
@@ -80,7 +86,7 @@ export const Header = () => {
         }
     };
 
-    const navItems = ['ホーム', 'ニュース', '私たちについて', 'サービス', '導入事例', '料金'];
+    const navItems = ['ホーム', 'ニュース', '私たちについて', 'サービス', '導入事例', '料金', 'お問い合わせ'];
 
     return (
         <>

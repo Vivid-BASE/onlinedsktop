@@ -87,6 +87,30 @@ export const AboutPage = () => {
                                 </Link>
                             </div>
                         </Section>
+
+                        {/* Section 5: Corporate Philosophy */}
+                        <Section title="企業理念">
+                            <Card>
+                                <p className="text-xl font-bold text-stone-800 text-center py-6 leading-normal">
+                                    インターネットオンラインサービスを<br className="hidden md:block" />
+                                    水道のように安価に大量に社会に供給する
+                                </p>
+                            </Card>
+                        </Section>
+
+                        {/* Section 6: Company Overview */}
+                        <Section title="会社概要">
+                            <div className="bg-white p-2 rounded-xl border border-stone-100">
+                                <dl>
+                                    <CompanyProfileRow label="会社名" value="オンラインデスクトップ株式会社" />
+                                    <CompanyProfileRow label="住所" value="〒180-0004 東京都武蔵野市吉祥寺本町1-20-1 吉祥寺永谷シティプラザ1002" />
+                                    <CompanyProfileRow label="資本金" value="10,000,000円" />
+                                    <CompanyProfileRow label="設立" value="2006年5月8日" />
+                                    <CompanyProfileRow label="事業内容" value="インターネット関連事業 ／ ASP販売 ／ サーバ設定管理 ／ Webシステム開発 ／ ホームページ制作" />
+                                    <CompanyProfileRow label="取引銀行" value="三菱東京UFJ銀行 元住吉支店" />
+                                </dl>
+                            </div>
+                        </Section>
                     </div>
                 </motion.div>
             </div>
@@ -109,7 +133,14 @@ const Section = ({ title, children }: { title: string, children: React.ReactNode
 );
 
 const Card = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
         {children}
+    </div>
+);
+
+const CompanyProfileRow = ({ label, value }: { label: string, value: string }) => (
+    <div className="py-4 border-b border-stone-100 last:border-0 grid grid-cols-1 md:grid-cols-3 gap-2">
+        <dt className="font-bold text-stone-800">{label}</dt>
+        <dd className="text-stone-600 md:col-span-2">{value}</dd>
     </div>
 );
