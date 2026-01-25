@@ -62,10 +62,10 @@ export const ServicePage = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <header className="text-center mb-16">
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight">
                             Service
                         </h1>
-                        <p className="text-blue-600 mt-4 font-medium tracking-wide text-lg">
+                        <p className="text-amber-600 mt-4 font-medium tracking-wide text-lg">
                             事業内容
                         </p>
                     </header>
@@ -79,19 +79,19 @@ export const ServicePage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                className="group bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                             >
-                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                                     {service.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-800 mb-3">
+                                <h3 className="text-xl font-bold text-stone-800 mb-3">
                                     {service.title}
                                 </h3>
-                                <p className="text-slate-500 leading-relaxed mb-6">
+                                <p className="text-stone-500 leading-relaxed mb-6">
                                     {service.description}
                                 </p>
-                                <div className="flex items-center text-sm font-semibold text-slate-300 bg-slate-50 px-3 py-1 rounded-full w-fit">
-                                    <span className="w-2 h-2 rounded-full bg-slate-300 mr-2"></span>
+                                <div className="flex items-center text-sm font-semibold text-stone-400 bg-stone-100 px-3 py-1 rounded-full w-fit">
+                                    <span className="w-2 h-2 rounded-full bg-stone-300 mr-2"></span>
                                     Detail coming soon
                                 </div>
                             </motion.div>
@@ -103,13 +103,13 @@ export const ServicePage = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100"
+                        className="bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-200"
                     >
-                        <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 md:p-12 text-center">
+                        <div className="bg-gradient-to-br from-amber-500 to-yellow-600 p-8 md:p-12 text-center">
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                                 請求書発行業務の自動化
                             </h2>
-                            <p className="text-blue-100 font-medium">
+                            <p className="text-amber-50 font-medium">
                                 三菱東京ＵＦＪ銀行様の「おまかせバンク」サービスとの連携により実現
                             </p>
                         </div>
@@ -122,7 +122,7 @@ export const ServicePage = () => {
                                 <BenefitItem title="郵便局支払" description="三菱東京ＵＦＪニコス様サービスと連携" />
                             </div>
 
-                            <div className="border-t border-slate-100 pt-8 text-xs text-slate-400 space-y-1">
+                            <div className="border-t border-stone-100 pt-8 text-xs text-stone-400 space-y-1">
                                 <p>※「おまかせバンク」は三菱東京ＵＦＪ銀行様の商品名称、商標または登録商標です。</p>
                                 <p>※「秘文」は株式会社日立ソリューションズ様の商品名称、商標または登録商標です。</p>
                                 <p>※「セキュアホスティング」および「セキュアホスティングサービス」は株式会社朝日ネット様の商品名称、商標または登録商標です。</p>
@@ -137,7 +137,7 @@ export const ServicePage = () => {
 
 const BenefitItem = ({ title, description }: { title: string, description: string }) => (
     <div className="flex items-start">
-        <div className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-4">
+        <div className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
         </div>
         <div>
