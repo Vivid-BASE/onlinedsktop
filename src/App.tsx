@@ -10,27 +10,30 @@ import { PricePage } from './pages/PricePage';
 import { ContactPage } from './pages/ContactPage';
 import { CompanyPage } from './pages/CompanyPage';
 import ScrollToTop from './components/ScrollToTop';
+import { PasswordGuard } from './components/PasswordGuard';
 import './styles/global.css';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<TopPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/service" element={<ServicePage />} />
-          <Route path="/case" element={<CasePage />} />
-          <Route path="/price" element={<PricePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/company" element={<CompanyPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <PasswordGuard password="2012">
+      <Router>
+        <ScrollToTop />
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route path="/" element={<TopPage />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/service" element={<ServicePage />} />
+            <Route path="/case" element={<CasePage />} />
+            <Route path="/price" element={<PricePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/company" element={<CompanyPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </PasswordGuard>
   );
 }
 

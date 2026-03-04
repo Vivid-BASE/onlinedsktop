@@ -31,3 +31,116 @@ span,
 div {
   color: inherit;
 }
+
+/* ========================================
+   Password Protection
+======================================== */
+#password-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0906;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#password-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/hero.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.3);
+  opacity: 0.6;
+}
+
+.password-box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 169, 106, 0.2);
+  padding: 50px 40px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.password-logo {
+  font-size: 1.5rem;
+  color: #c8a96a;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.password-msg {
+  font-size: 0.9rem;
+  color: rgba(240, 235, 224, 0.8);
+  margin-bottom: 30px;
+  letter-spacing: 0.05em;
+}
+
+#password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#password-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(200, 169, 106, 0.3);
+  padding: 12px 15px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 2px;
+  transition: border-color 0.3s;
+}
+
+#password-input:focus {
+  outline: none;
+  border-color: #c8a96a;
+}
+
+#password-submit {
+  background: #c8a96a;
+  color: #0a0906;
+  border: none;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: background 0.3s, transform 0.2s;
+  border-radius: 2px;
+}
+
+#password-submit:hover {
+  background: #e8c98a;
+  transform: translateY(-1px);
+}
+
+.password-error {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #ff6b6b;
+}
+
+.main-content-revealed {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
